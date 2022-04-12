@@ -49,7 +49,6 @@ class File{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        str = str.replaceAll(" ","");
         return str;
     }
 }
@@ -84,6 +83,7 @@ class Check{
             if(arr[i]!=null)
                 System.out.print(arr[i]+": "+count[i]+ ", ");
         }
+        System.out.println("end");
     }
 }
 
@@ -154,17 +154,17 @@ public class Huffman {
         File file = new File();
         String text = file.getString("test.txt");
         String originalData = text;
-
+        System.out.println(text);
 
 
         // 빈도수 계산
         Check check = new Check();
-        String[] strArr = new String[2000];
-        int[] countArr = new int[2000];
+        String[] strArr = new String[10000];
+        int[] countArr = new int[10000];
         check.CheckCount(strArr,countArr,text);
-        System.out.printf("각 문자별 빈도수: ");
-        check.print(strArr,countArr);
-        System.out.println();
+//        System.out.printf("각 문자별 빈도수: ");
+//        check.print(strArr,countArr);
+//        System.out.println();
 
 
 
@@ -190,15 +190,21 @@ public class Huffman {
         getPrefix(node,prefix,arrayList);
 
 
+
         // 프리픽스 가져오기 및 인코딩
         String encoding = text;
         for(int j=0;j<encoding.length();j++) {
             String temp = encoding.substring(j,j+1);
+
+            if(encoding.lastIndexOf("0") == encoding.length() && encoding.lastIndexOf("1") == encoding.length())
+                break;
             for (int i = 0; i < arrayList.size(); i++) {
                 Prefix pre = new Prefix();
                 pre = arrayList.get(i);
                 if(temp.equals(pre.c))
                     encoding = encoding.replaceFirst(temp,pre.prefix);
+
+
             }
         }
 
@@ -225,7 +231,6 @@ public class Huffman {
 
                 if(decode.equals(temp))
                     decoding = decoding.replaceFirst(temp,pre.c);
-//                System.out.println("j: "+j+",    decode:  "+decode+",   temp: "+temp+"   , decoding: "+decoding+"  text.len: "+decoding.length());
                 if(!decoding.contains("0") && !decoding.contains("1"))
                     break;
 
@@ -233,11 +238,13 @@ public class Huffman {
         }
 
 
+
+
         System.out.println();
         System.out.println("원래 데이터: "+text);
         System.out.println("인코딩 후 데이터: "+encoding);
         System.out.println("디코딩 후 데이터: "+decoding);
-        System.out.println();
+
 
 
         // 압축전 파일의 크기
