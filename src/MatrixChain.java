@@ -1,5 +1,5 @@
 public class MatrixChain {
-    
+
     public static void main(String[] args) {
         int[][] A = new int[501][501];
         int[][] C = new int[1001][1001];
