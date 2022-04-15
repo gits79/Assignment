@@ -7,6 +7,20 @@
 그래서 테스트 파일의 경우 일부 특수문자를 제거하고 실행시켰습니다.
 
 
+프리픽스 할당 (중략)
+![스크린샷(254)](https://user-images.githubusercontent.com/101376845/163507571-888c0815-e45a-446b-af41-d89b4865bb4e.png)
+
+
+원래 데이터 (중략)
+![스크린샷(255)](https://user-images.githubusercontent.com/101376845/163507668-f285b5ed-7426-4650-85be-dae498067990.png)
+
+
+인코딩 후 데이터 및 디코딩 후 데이터 (중략)
+![스크린샷(257)](https://user-images.githubusercontent.com/101376845/163507736-35a96ac9-42a0-4c0f-a214-24e2c7d1bbde.png)
+
+
+
+
 *압축전 파일의 크기= 26512*
 
 
